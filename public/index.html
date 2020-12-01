@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DUNGBUI</title>
+</head>
+<body>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+<script src="scripts/firebase.js"></script>
+<script src="scripts/listener.js"></script>
+<script src="scripts/scenes/sceneManager.js"></script>
+<script src="main.js"></script>
+
+<button onclick="writeScene('start')">StartScene</button>
+<button onclick="writeScene('room')">RoomScene</button>
+<script>
+    function writeScene(x) {
+        console.log(x);
+        firebase.database().ref().child("rooms").child(roomId).child("room_stage").set(x);
+    }
+</script>
+
+<p id="scene"></p>
+</body>
+</html>
